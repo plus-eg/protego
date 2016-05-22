@@ -1,6 +1,8 @@
 # Protego
+Flexible authentication solution for Elixir/Phoenix with Guardian. it:
+* Is heavily inspired by Rails Devise;
+* Is Plug based;
 
-**TODO: Add description**
 
 ## Installation
 
@@ -17,4 +19,21 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
         def application do
           [applications: [:protego]]
         end
+  
+  3. Configure Guardian
 
+        config :guardian, Guardian,
+          issuer: "<Application>.#{Mix.env}",
+          ttl: {1, :days},
+          verify_issuer: true,
+          serializer: PhoenixGuardian.GuardianSerializer,
+          secret_key: <secret_key_base>,
+          hooks: GuardianDb,
+          permissions: %{
+            default: [
+              :read_profile,
+              :write_profile,
+              :read_token,
+              :revoke_token,
+            ],
+          }
