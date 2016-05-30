@@ -1,9 +1,7 @@
 language: elixir
 elixir:
-  - 1.1.0
   - 1.2.0
 otp_release:
-  - 17.4
   - 18.1
 env: MIX_ENV=test
 sudo: false # faster builds
@@ -12,4 +10,3 @@ notifications:
 script:
   - mix compile --warnings-as-errors
   - mix test
-  - mix credo
