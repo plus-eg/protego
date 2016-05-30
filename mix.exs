@@ -25,7 +25,7 @@ defmodule Protego.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+        [applications: [:logger]]
   end
 
   # Dependencies can be Hex packages:
@@ -42,9 +42,8 @@ defmodule Protego.Mixfile do
       # Docs dependencies
       {:earmark, "~> 0.1", only: :docs},
       {:ex_doc, "~> 0.11", only: :docs},
-
-      {:guardian, "~> 0.10.0"}
-
+      {:comeonin, "~> 2.0.0"},
+      {:guardian, "~> 0.10.0"},
     ]
   end
 

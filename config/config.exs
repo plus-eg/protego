@@ -28,20 +28,3 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env}.exs"
-
-config :guardian, Guardian,
-  issuer: "Protego.#{Mix.env}",
-  ttl: {1, :days},
-  verify_issuer: true,
-  serializer: PhoenixGuardian.GuardianSerializer,
-  secret_key: to_string(Mix.env),
-  hooks: GuardianDb,
-  permissions: %{
-    default: [
-      :read_profile,
-      :write_profile,
-      :read_token,
-      :revoke_token,
-    ],
-  }
-
