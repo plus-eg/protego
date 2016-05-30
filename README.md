@@ -23,7 +23,7 @@ Configure Guardian
 
 Generate the user resource
 
-   mix phoenix.gen.model User users name:string email:string password_hash:string
+    mix phoenix.gen.model User users name:string email:string password_hash:string
 
 Configure your routes
 
