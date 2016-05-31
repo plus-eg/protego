@@ -6,3 +6,4 @@ erl_crash.dump
 Dockerfile
 docker-compose.yml
 /data
+/tmp
