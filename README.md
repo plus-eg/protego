@@ -31,7 +31,7 @@ Configure your routes
 
     defmodule MyApp.Router do
       use MyApp.Web, :router
-      require Protego.Router 
+      use Protego.Router 
 
       scope "/" do
         pipe_through :browser

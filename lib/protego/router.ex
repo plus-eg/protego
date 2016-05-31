@@ -1,7 +1,6 @@
 defmodule Protego.Router do
   defmacro protego_for(resource) do
     quote do
-      IO.inspect(unquote(resource))
     end
   end
 

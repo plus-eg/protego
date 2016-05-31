@@ -1,8 +1,11 @@
 defmodule ProtegoTest do
   use ExUnit.Case
   doctest Protego
+  require IEx
 
-  test "the truth" do
-    assert 1 + 1 == 2
+  test "defines the macro protego_for" do
+    assert Keyword.has_key?(Protego.Router.__info__(:macros), :protego_for),
+    "It didn't define the protego_for"
   end
+
 end
