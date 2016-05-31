@@ -1,4 +1,4 @@
-defmodule ProtegoTest do
+defmodule Protego.RouterTest do
   use ExUnit.Case
   doctest Protego
 
@@ -7,5 +7,4 @@ defmodule ProtegoTest do
     "It didn't define the protego_for"
   end
 
-end
 end

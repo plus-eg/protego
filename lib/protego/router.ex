@@ -3,10 +3,4 @@ defmodule Protego.Router do
     quote do
     end
   end
-
-  defmacro __using__(_) do
-    quote do
-      import unquote(__MODULE__), only: [protego_for: 1]
-    end
-  end
 end
