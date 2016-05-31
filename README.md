@@ -5,6 +5,9 @@ Flexible authentication solution for Elixir/Phoenix with Guardian. it:
 * Is inspired by Rails Devise;
 * Is Plug based;
 
+Protego is modular, so you can use:
+* Authenticatable: Automates user authentication through POST requests, it 
+handles hashing, storing and authenticating a user.
 
 ## Getting Started 
 
@@ -39,3 +42,8 @@ Configure your routes
         protego_for MyApp.Resource #ex: MyApp.User
       end
     end
+
+Configure Protego (one for each resource )
+
+    config :protego, MyApp.User
+    authenticatable: true

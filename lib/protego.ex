@@ -1,4 +1,8 @@
 defmodule Protego do
+  @moduledoc """
+  Flexible authentication solution for Elixir/Phoenix with Guardian.
+  """
+
   def router do
     quote do
       import Protego.Router,  only: [protego_for: 1]
