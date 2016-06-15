@@ -5,7 +5,7 @@ defmodule Protego do
 
   def router do
     quote do
-      import Protego.Router,  only: [protego_for: 2]
+      import Protego.Router
     end
   end
 
