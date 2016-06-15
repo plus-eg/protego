@@ -15,9 +15,7 @@ defmodule Protego.Mixfile do
      homepage_url: "http://www.pluseg.com",
      description: """
      Flexible authentication solution for Elixir/Phoenix with Guardian.
-     Heavily inspired by devise.
      """
-
    ]
   end
 
@@ -25,7 +23,7 @@ defmodule Protego.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-        [applications: [:logger]]
+        [applications: [:comeonin]]
   end
 
   # Dependencies can be Hex packages:
@@ -42,14 +40,17 @@ defmodule Protego.Mixfile do
       # Docs dependencies
       {:earmark, "~> 0.1", only: :docs},
       {:ex_doc, "~> 0.11", only: :docs},
+ 
+      {:phoenix, "~> 1.2-rc"},
+
       {:comeonin, "~> 2.0.0"},
-      {:guardian, "~> 0.10.0"},
+      {:guardian, "~> 0.12.0"},
     ]
   end
 
   defp package do
     [maintainers: ["Peter Shoukry"],
      licenses: ["MIT"],
-     links: %{github: "https://github.com/plus-eg/"}]
+     links: %{github: "https://github.com/plus-eg/protego"}]
   end
 end
