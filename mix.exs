@@ -9,6 +9,7 @@ defmodule Protego.Mixfile do
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     compilers: [:phoenix, :gettext] ++ Mix.compilers,
      deps: deps,
      package: package,
      name: "Protego",
@@ -23,7 +24,7 @@ defmodule Protego.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-        [applications: [:comeonin]]
+        [applications: [:phoenix, :comeonin, :gettext]]
   end
 
   # Dependencies can be Hex packages:
@@ -42,6 +43,8 @@ defmodule Protego.Mixfile do
       {:ex_doc, "~> 0.11", only: :docs},
  
       {:phoenix, "~> 1.2-rc"},
+      {:gettext, "~> 0.8"},
+      {:phoenix_html, "~> 2.5"},
 
       {:comeonin, "~> 2.0.0"},
       {:guardian, "~> 0.12.0"},

@@ -1,9 +1,10 @@
 defmodule Protego.Router do
   @moduledoc """
-  Handles routing depending on enabled modules.
+  The Router defines routes depending on the enabled modules.
 
-  Handles initial configuration of the enabled modules through the `Protego.Router.protego_for/2` macro
-
+  It initializes the protego app configuration for given resources 
+  using the `Protego.Router.protego_for/2` macro
+  
   ## Available modules
   * authenticatable
   """
@@ -12,8 +13,9 @@ defmodule Protego.Router do
   Enables protego for a specific resource with selected modules.
 
   ## Examples
+
   ```elixir
-  protego_for App.User, :authenticatable # Enables protego for App.User with the authenticatable module
+  protego_for App.User, :authenticatable # Enables protego for App.User with authenticatable module
   ```
   """
   defmacro protego_for(resource, modules \\ []) do
@@ -22,6 +24,8 @@ defmodule Protego.Router do
       |> get_resource_name
       |> generate_config(unquote(modules))
       |> persist_config
+
+      generate_routes
     end
   end
 
@@ -44,7 +48,14 @@ defmodule Protego.Router do
   # Persist config in app protego
   @doc false
   def persist_config(config) do
-    Mix.Config.merge(Application.get_all_env(:protego), config)
-    |> Mix.Config.persist
+    Mix.Config.merge(Application.get_all_env(:protego), config) |> Mix.Config.persist
+  end
+
+  # Defines routes for the enables modules
+  @doc false
+  defmacro generate_routes do
+    quote do
+	get "/", Controllers.UserController, :index, as: :users
+    end
   end
 end

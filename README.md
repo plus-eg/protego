@@ -38,12 +38,18 @@ Configure your routes
       use MyApp.Web, :router
       use Protego, :router
 
-      scope "/" do
+      scope "/", MyApp do
+        pipe_through :browser
+
+      end
+      scope "/users", Protego do
         pipe_through :browser
 
         protego_for MyApp.Resource, :authenticatable #ex: My.User, :authenticatable
       end
     end
+	
+This will generate a new scope "/users" with the new defined routes.
 
 ## Authenticatable
 

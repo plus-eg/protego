@@ -68,8 +68,9 @@
 
       
         <section id="moduledoc" class="docstring">
-          <p>Handles routing depending on enabled modules.</p>
-<p>Handles initial configuration of the enabled modules through the <a href="Protego.Router.html#protego_for/2"><code class="inline">Protego.Router.protego_for/2</code></a> macro</p>
+          <p>The Router defines routes depending on the enabled modules.</p>
+<p>It initializes the protego app configuration for given resources 
+using the <a href="Protego.Router.html#protego_for/2"><code class="inline">Protego.Router.protego_for/2</code></a> macro</p>
 <h2>Available modules</h2>
 <ul>
 <li>authenticatable
@@ -97,6 +98,12 @@
       <a href="#macros">Macros</a>
     </h2>
     <div class="summary-row">
+  <div class="summary-signature">
+    <a href="#generate_routes/0">generate_routes()</a>
+  </div>
+  
+</div>
+<div class="summary-row">
   <div class="summary-signature">
     <a href="#protego_for/2">protego_for(resource, modules \\ [])</a>
   </div>
@@ -126,7 +133,20 @@
             </a>
             Macros
           </h1>
-          <div class="detail" id="protego_for/2">
+          <div class="detail" id="generate_routes/0">
+  <div class="detail-header">
+    <a href="#generate_routes/0" class="detail-link" title="Link to this macro">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">generate_routes()</span>
+      
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+</div>
+<div class="detail" id="protego_for/2">
   <div class="detail-header">
     <a href="#protego_for/2" class="detail-link" title="Link to this macro">
       <i class="icon-link"></i>
@@ -138,7 +158,7 @@
   <section class="docstring">
     <p>Enables protego for a specific resource with selected modules.</p>
 <h2>Examples</h2>
-<pre><code class="elixir">protego_for App.User, :authenticatable # Enables protego for App.User with the authenticatable module</code></pre>
+<pre><code class="elixir">protego_for App.User, :authenticatable # Enables protego for App.User with authenticatable module</code></pre>
 
   </section>
 </div>
