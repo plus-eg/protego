@@ -44,6 +44,7 @@ defmodule Protego.Mixfile do
  
       {:phoenix, "~> 1.2-rc"},
       {:gettext, "~> 0.8"},
+      {:inflex, "~> 1.5.0"},
       {:phoenix_html, "~> 2.5"},
 
       {:comeonin, "~> 2.0.0"},

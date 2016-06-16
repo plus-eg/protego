@@ -12,4 +12,4 @@ msgstr ""
 
 #: lib/protego/templates/views/user/index.html.eex:1
 msgid "test2"
-msgstr "tes"
+msgstr ""
