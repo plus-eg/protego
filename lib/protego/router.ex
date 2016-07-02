@@ -25,7 +25,7 @@ defmodule Protego.Router do
       |> generate_config(unquote(modules))
       |> persist_config
 
-      generate_routes
+      generate_routes()
     end
   end
 
@@ -55,7 +55,7 @@ defmodule Protego.Router do
   @doc false
   defmacro generate_routes do
     quote do
-	get "/", Controllers.UserController, :index, as: :users
+      get "/", Controllers.UserController, :index, as: :users
     end
   end
 end

@@ -8,8 +8,8 @@ Flexible authentication solution for Elixir/Phoenix with Guardian. it:
 
 Protego is modular, so you can use:
 
-* Authenticatable: Automates user authentication through POST requests, it 
-handles hashing, storing and authenticating a user.
+* Authenticatable: Hangles authenticating a user via password stored in the database.
+* Registrable: Handles the signup process of a user.
 
 ## Getting Started 
   

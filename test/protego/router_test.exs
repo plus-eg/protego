@@ -3,40 +3,50 @@ defmodule Protego.RouterTest do
   use RouterHelper
   doctest Protego.Router
 
+  setup do
+    Logger.disable(self())
+    :ok
+  end
+
+  ## Models
+
   defmodule User do
   end
+
+  defmodule UserAccount do
+  end
+
+  ## Router
 
   defmodule Router do
     use Phoenix.Router
     use Protego, :router
 
     scope "/users", Protego do
-      protego_for User, :authenticatable
+      protego_for User, [:registrable, :authenticatable]
+    end
+
+    scope "/user_accounts", Protego do
       protego_for UserAccount, :authenticatable
     end
   end
 
-  setup do
-    Logger.disable(self())
-    :ok
-  end
-
-  test "defines the macro protego_for" do
+  test "use defines protego_for macro" do
     assert Keyword.has_key?(Protego.Router.__info__(:macros), :protego_for)
   end
 
-  test "sets protego config per user resource based on the enabled modules" do
-    defmodule UserAccount do
+  describe "protego_for" do
+    test "configures enabled modules for a resource" do
+      assert Application.get_env(:protego, :user) == [modules: [:registrable, :authenticatable]]
+      assert Application.get_env(:protego, :user_account) == [modules: :authenticatable]
     end
 
-    assert Application.get_env(:protego, :user) == [modules: :authenticatable]
-    assert Application.get_env(:protego, :user_account) == [modules: :authenticatable]
-  end
-
-  test "generates routes depending on the enabled modules" do
-
-    conn = call(Router, :get, "/users")
-    assert conn.status == 200
-    assert conn.resp_body == "users index"
+    test "defines routes for registerable module"  do
+      IO.inspect Application.get_all_env(:protego)
+      Application.put_env(:protego, :registrable_user, [modules: [:registrable]])
+      IO.inspect Application.get_all_env(:protego)
+      conn = call(Router, :get, "/users")
+      assert conn.status == 200
+    end
   end
 end

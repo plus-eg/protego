@@ -10,21 +10,20 @@ defmodule Protego.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
-     deps: deps,
-     package: package,
+     deps: deps(),
+     package: package(),
      name: "Protego",
      homepage_url: "http://www.pluseg.com",
      description: """
      Flexible authentication solution for Elixir/Phoenix with Guardian.
-     """
-   ]
+     """]
   end
 
   # Configuration for the OTP application
   #
   # Type "mix help compile.app" for more information
   def application do
-        [applications: [:phoenix, :comeonin, :gettext]]
+    [applications: [:phoenix, :comeonin, :gettext]]
   end
 
   # Dependencies can be Hex packages:
@@ -37,19 +36,17 @@ defmodule Protego.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [
-      # Docs dependencies
+    [ # Docs dependencies
       {:earmark, "~> 0.1", only: :docs},
       {:ex_doc, "~> 0.11", only: :docs},
- 
-      {:phoenix, "~> 1.2-rc"},
+
+      # Dev Dependencies
+      {:phoenix, "~> 1.2.0"},
       {:gettext, "~> 0.8"},
-      {:inflex, "~> 1.5.0"},
-      {:phoenix_html, "~> 2.5"},
+      {:phoenix_html, "~> 2.6.0"},
 
       {:comeonin, "~> 2.0.0"},
-      {:guardian, "~> 0.12.0"},
-    ]
+      {:guardian, "~> 0.12.0"}]
   end
 
   defp package do

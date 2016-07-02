@@ -7,5 +7,4 @@ defmodule Protego.Controllers.UserController do
   def index(conn, _params) do
     render conn, Protego.Views.UserView, "index.html"
   end
-
 end
