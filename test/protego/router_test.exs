@@ -42,9 +42,7 @@ defmodule Protego.RouterTest do
     end
 
     test "defines routes for registerable module"  do
-      IO.inspect Application.get_all_env(:protego)
       Application.put_env(:protego, :registrable_user, [modules: [:registrable]])
-      IO.inspect Application.get_all_env(:protego)
       conn = call(Router, :get, "/users")
       assert conn.status == 200
     end
