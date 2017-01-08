@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.11.5">
-    <title>Protego – Protego v0.1.0</title>
+    <title>Protego.Router – Protego v0.1.0</title>
     <link rel="stylesheet" href="dist/app-ddd9717ad9.css" />
     
     <script src="dist/sidebar_items.js"></script>
@@ -61,14 +61,21 @@
 
       <h1>
         <small class="visible-xs">Protego v0.1.0</small>
-        Protego
+        Protego.Router
         
         
       </h1>
 
       
         <section id="moduledoc" class="docstring">
-          <p>Flexible authentication solution for Elixir/Phoenix with Guardian.</p>
+          <p>The Router defines routes depending on the enabled modules.</p>
+<p>It initializes the protego app configuration for given resources 
+using the <a href="Protego.Router.html#protego_for/2"><code class="inline">Protego.Router.protego_for/2</code></a> macro</p>
+<h2>Available modules</h2>
+<ul>
+<li>authenticatable
+</li>
+</ul>
 
         </section>
       
@@ -84,19 +91,6 @@
           
 
           
-  <div class="summary-functions summary">
-    <h2>
-      <a href="#functions">Functions</a>
-    </h2>
-    <div class="summary-row">
-  <div class="summary-signature">
-    <a href="#router/0">router()</a>
-  </div>
-  
-</div>
-
-  </div>
-
 
           
   <div class="summary-macros summary">
@@ -105,10 +99,16 @@
     </h2>
     <div class="summary-row">
   <div class="summary-signature">
-    <a href="#__using__/1">__using__(which)</a>
+    <a href="#generate_routes/0">generate_routes()</a>
   </div>
   
-    <div class="summary-synopsis"><p>When used, dispatch to the appropriate controller/view/etc</p>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#protego_for/2">protego_for(resource, modules \\ [])</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Enables protego for a specific resource with selected modules</p>
 </div>
   
 </div>
@@ -123,29 +123,6 @@
 
       
 
-      
-        <section id="functions" class="details-list">
-          <h1 class="section-heading">
-            <a class="hover-link" href="#functions">
-              <i class="icon-link"></i>
-            </a>
-            Functions
-          </h1>
-          <div class="detail" id="router/0">
-  <div class="detail-header">
-    <a href="#router/0" class="detail-link" title="Link to this function">
-      <i class="icon-link"></i>
-    </a>
-    <span class="signature">router()</span>
-      
-  </div>
-  
-  <section class="docstring">
-    
-  </section>
-</div>
-
-        </section>
       
 
       
@@ -156,17 +133,32 @@
             </a>
             Macros
           </h1>
-          <div class="detail" id="__using__/1">
+          <div class="detail" id="generate_routes/0">
   <div class="detail-header">
-    <a href="#__using__/1" class="detail-link" title="Link to this macro">
+    <a href="#generate_routes/0" class="detail-link" title="Link to this macro">
       <i class="icon-link"></i>
     </a>
-    <span class="signature">__using__(which)</span>
+    <span class="signature">generate_routes()</span>
       
   </div>
   
   <section class="docstring">
-    <p>When used, dispatch to the appropriate controller/view/etc.</p>
+    
+  </section>
+</div>
+<div class="detail" id="protego_for/2">
+  <div class="detail-header">
+    <a href="#protego_for/2" class="detail-link" title="Link to this macro">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">protego_for(resource, modules \\ [])</span>
+      
+  </div>
+  
+  <section class="docstring">
+    <p>Enables protego for a specific resource with selected modules.</p>
+<h2>Examples</h2>
+<pre><code class="elixir">protego_for App.User, :authenticatable # Enables protego for App.User with authenticatable module</code></pre>
 
   </section>
 </div>

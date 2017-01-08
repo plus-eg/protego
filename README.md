@@ -2,11 +2,16 @@
 [![Build Status](https://travis-ci.org/plus-eg/protego.svg?branch=master)](https://travis-ci.org/plus-eg/protego)
 
 Flexible authentication solution for Elixir/Phoenix with Guardian. it:
+
 * Is inspired by Rails Devise;
 * Is Plug based;
 
+Protego is modular, so you can use:
 
-## Getting Started 
+* Authenticatable: Hangles authenticating a user via password stored in the database.
+* Registrable: Handles the signup process of a user.
+
+## Getting Started
 
 Add protego to your list of dependencies in `mix.exs`:
 
@@ -33,9 +38,28 @@ Configure your routes
       use MyApp.Web, :router
       use Protego, :router
 
-      scope "/" do
+      scope "/", MyApp do
         pipe_through :browser
 
-        protego_for MyApp.Resource #ex: MyApp.User
+      end
+      scope "/users", Protego do
+        pipe_through :browser
+
+        protego_for MyApp.Resource, :authenticatable #ex: My.User, :authenticatable
       end
     end
+
+This will generate a new scope "/users" with the new defined routes.
+
+## Authenticatable
+
+Enable Module
+
+    protego_for MyApp.Resource, :authenticatable #ex: My.User, :authenticatable - allowed modules are authenticatable
+
+Add required schema fields
+
+    field :username, :string
+    field :password, :string, virtual: true
+    field :password_hash, :string
+

@@ -1,6 +1,10 @@
 language: elixir
 elixir:
+<<<<<<< HEAD
   - 1.3.2
+=======
+  - 1.3.4
+>>>>>>> add_authenticatable
 otp_release:
   - 19.2
 env: MIX_ENV=test
