@@ -1,10 +1,10 @@
 defmodule Protego.Router do
   @moduledoc """
-  The Router defines routes depending on the enabled modules.
+  Extends Elixir router with routes of the enabled modules
 
-  It initializes the protego app configuration for given resources 
+  It initializes the protego app configuration for given resources
   using the `Protego.Router.protego_for/2` macro
-  
+
   ## Available modules
   * authenticatable
   """
@@ -14,9 +14,8 @@ defmodule Protego.Router do
 
   ## Examples
 
-  ```elixir
-  protego_for App.User, :authenticatable # Enables protego for App.User with authenticatable module
-  ```
+    # Enables protego for App.User with database_authenticatable module
+    protego_for App.User, :database_authenticatable
   """
   defmacro protego_for(resource, modules \\ []) do
     quote do
@@ -25,11 +24,10 @@ defmodule Protego.Router do
       |> generate_config(unquote(modules))
       |> persist_config
 
-      generate_routes()
+generate_routes()
     end
   end
 
-  # Returns resource name from module name
   @doc false
   def get_resource_name(module) do
     String.split("#{module}", ".")
@@ -41,14 +39,15 @@ defmodule Protego.Router do
   # Generate new config for resource
   @doc false
   def generate_config(resource, modules) do
-    resource_config = Keyword.put_new([], resource, [modules: modules])
-    Keyword.put_new([], :protego, resource_config)
+  resource_config = Keyword.put_new([], resource, [modules: modules])
+  Keyword.put_new([], :protego, resource_config)
   end
 
   # Persist config in app protego
   @doc false
   def persist_config(config) do
-    Mix.Config.merge(Application.get_all_env(:protego), config) |> Mix.Config.persist
+    Mix.Config.merge(Application.get_all_env(:protego), config)
+    |> Mix.Config.persist
   end
 
   # Defines routes for the enables modules

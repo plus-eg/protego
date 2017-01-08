@@ -1,7 +1,7 @@
 defmodule Protego.Controllers.UserController do
+  @moduledoc false
   use Phoenix.Controller
 
-  #plug :put_layout, false #{Plus.LayoutView, "app.html"}
   plug :put_layout, false
 
   def index(conn, _params) do

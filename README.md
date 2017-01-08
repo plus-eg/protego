@@ -11,8 +11,8 @@ Protego is modular, so you can use:
 * Authenticatable: Hangles authenticating a user via password stored in the database.
 * Registrable: Handles the signup process of a user.
 
-## Getting Started 
-  
+## Getting Started
+
 Add protego to your list of dependencies in `mix.exs`:
 
     def deps do
@@ -48,7 +48,7 @@ Configure your routes
         protego_for MyApp.Resource, :authenticatable #ex: My.User, :authenticatable
       end
     end
-	
+
 This will generate a new scope "/users" with the new defined routes.
 
 ## Authenticatable
