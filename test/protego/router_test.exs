@@ -8,7 +8,7 @@ defmodule Protego.RouterTest do
     :ok
   end
 
-  ## Models
+  # Models
 
   defmodule User do
   end
@@ -16,7 +16,7 @@ defmodule Protego.RouterTest do
   defmodule UserAccount do
   end
 
-  ## Router
+  # Router
 
   defmodule Router do
     use Phoenix.Router
@@ -36,13 +36,16 @@ defmodule Protego.RouterTest do
   end
 
   describe "protego_for" do
-    test "configures enabled modules for a resource" do
-      assert Application.get_env(:protego, :user) == [modules: [:registrable, :authenticatable]]
-      assert Application.get_env(:protego, :user_account) == [modules: :authenticatable]
+    test "enables selected modules for a resource" do
+      assert Application.get_env(:protego, :user) ==
+        [modules: [:registrable, :authenticatable]]
+      assert Application.get_env(:protego, :user_account) ==
+        [modules: :authenticatable]
     end
 
     test "defines routes for registerable module"  do
-      Application.put_env(:protego, :registrable_user, [modules: [:registrable]])
+      Application.put_env(:protego, :registrable_user,
+                          [modules: [:registrable]])
       conn = call(Router, :get, "/users")
       assert conn.status == 200
     end

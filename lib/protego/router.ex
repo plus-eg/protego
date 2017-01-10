@@ -30,7 +30,9 @@ generate_routes()
 
   @doc false
   def get_resource_name(module) do
-    String.split("#{module}", ".")
+    module
+    |> Atom.to_string
+    |> String.split(".")
     |> List.last
     |> Macro.underscore
     |> String.to_atom
@@ -46,7 +48,9 @@ generate_routes()
   # Persist config in app protego
   @doc false
   def persist_config(config) do
-    Mix.Config.merge(Application.get_all_env(:protego), config)
+    :protego
+    |> Application.get_all_env
+    |> Mix.Config.merge(config)
     |> Mix.Config.persist
   end
 
