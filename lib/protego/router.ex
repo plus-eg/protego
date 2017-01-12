@@ -20,29 +20,19 @@ defmodule Protego.Router do
   defmacro protego_for(resource, modules \\ []) do
     quote do
       unquote(resource)
-      |> get_resource_name
+      |> Protego.Support.Module.to_atom
       |> generate_config(unquote(modules))
       |> persist_config
 
-generate_routes()
+      generate_routes()
     end
-  end
-
-  @doc false
-  def get_resource_name(module) do
-    module
-    |> Atom.to_string
-    |> String.split(".")
-    |> List.last
-    |> Macro.underscore
-    |> String.to_atom
   end
 
   # Generate new config for resource
   @doc false
   def generate_config(resource, modules) do
-  resource_config = Keyword.put_new([], resource, [modules: modules])
-  Keyword.put_new([], :protego, resource_config)
+    resource_config = Keyword.put_new([], resource, [modules: modules])
+    Keyword.put_new([], :protego, resource_config)
   end
 
   # Persist config in app protego
