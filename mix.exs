@@ -6,7 +6,7 @@ defmodule Protego.Mixfile do
   def project do
     [app: :protego,
      version: @version,
-     elixir: "~> 1.2",
+     elixir: "~> 1.7",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps,
