@@ -6,11 +6,11 @@ defmodule Protego.Mixfile do
   def project do
     [app: :protego,
      version: @version,
-     elixir: "~> 1.2",
+     elixir: "~> 1.7",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps,
-     package: package,
+     deps: deps(),
+     package: package(),
      name: "Protego",
      homepage_url: "http://www.pluseg.com",
      description: """
@@ -40,10 +40,10 @@ defmodule Protego.Mixfile do
   defp deps do
     [
       # Docs dependencies
-      {:earmark, "~> 0.1", only: :docs},
-      {:ex_doc, "~> 0.11", only: :docs},
-      {:comeonin, "~> 2.0.0"},
-      {:guardian, "~> 0.10.0"},
+      {:earmark, "~> 1.3", only: :docs},
+      {:ex_doc, "~> 0.19", only: :docs},
+      {:comeonin, "~> 5.0.0"},
+      {:guardian, "~> 1.2"},
     ]
   end
 

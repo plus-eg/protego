@@ -1,12 +1,11 @@
 # Protego
-[![Build Status](https://travis-ci.org/plus-eg/protego.svg?branch=master)](https://travis-ci.org/plus-eg/protego)
 
 Flexible authentication solution for Elixir/Phoenix with Guardian. it:
 * Is inspired by Rails Devise;
 * Is Plug based;
 
 
-## Getting Started 
+## Getting Started
 
 Add protego to your list of dependencies in `mix.exs`:
 
