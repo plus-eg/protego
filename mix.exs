@@ -1,7 +1,7 @@
 defmodule Protego.Mixfile do
   use Mix.Project
 
-  @version "0.0.1"
+  @version "0.1.1"
 
   def project do
     [app: :protego,
@@ -14,8 +14,7 @@ defmodule Protego.Mixfile do
      name: "Protego",
      homepage_url: "http://www.pluseg.com",
      description: """
-     Flexible authentication solution for Elixir/Phoenix with Guardian.
-     Heavily inspired by devise.
+     Flexible authentication solution for Elixir/Phoenix with uberauth and Guardian.
      """
 
    ]
@@ -42,7 +41,7 @@ defmodule Protego.Mixfile do
       # Docs dependencies
       {:earmark, "~> 1.3", only: :docs},
       {:ex_doc, "~> 0.19", only: :docs},
-      {:comeonin, "~> 5.0.0"},
+      {:comeonin, "~> 5.1.0"},
       {:guardian, "~> 1.2"},
     ]
   end
