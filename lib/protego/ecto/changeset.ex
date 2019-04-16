@@ -1,6 +1,6 @@
 defmodule Protego.Changeset do
 
-  def error_map_from(changeset) do
+  def error_list_from(changeset) do
     changeset.errors
     |> Enum.reduce([], fn attribute, errors ->
       field_name = elem(attribute, 0)
