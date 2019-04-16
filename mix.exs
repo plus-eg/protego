@@ -41,7 +41,7 @@ defmodule Protego.Mixfile do
       # Docs
       {:earmark, "~> 1.3", only: :docs},
       {:ex_doc, "~> 0.19", only: :docs},
-      # Dev
+     # Dev
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:comeonin, "~> 5.1.0"},
       {:guardian, "~> 1.2"},
