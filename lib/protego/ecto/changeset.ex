@@ -9,8 +9,6 @@ defmodule Protego.Ecto.Changeset do
   ## Example
   iex> Protego.Ecto.Changeset.error_list_from(%{errors: [email: {"has already been taken", []}]})
   ["email has already been taken"]
-
-
   """
   def error_list_from(changeset) do
     changeset.errors
