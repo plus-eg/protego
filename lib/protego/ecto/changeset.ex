@@ -1,9 +1,9 @@
 defmodule Protego.Ecto.Changeset do
-  @moduledoc"""
+  @moduledoc """
   The module adds some helper functions required during registration / authentication of users and authorization of resources.
   """
 
-  @doc"""
+  @doc """
   Converts the typical changeset nested errors map to a flat list of errors.
 
   ## Example
