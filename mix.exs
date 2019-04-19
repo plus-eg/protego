@@ -44,7 +44,8 @@ defmodule Protego.Mixfile do
       # Dev
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:comeonin, "~> 5.1.0"},
-      {:guardian, "~> 1.2"}
+      {:guardian, "~> 1.2"},
+      {:ecto_sql, "~> 3.0"}
     ]
   end
 
