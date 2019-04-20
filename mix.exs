@@ -43,9 +43,9 @@ defmodule Protego.Mixfile do
       {:ex_doc, "~> 0.19", only: :docs},
       # Dev
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
-      {:comeonin, "~> 5.1.0"},
       {:guardian, "~> 1.2"},
-      {:ecto_sql, "~> 3.0"}
+      {:ecto_sql, "~> 3.0"},
+      {:argon2_elixir, "~> 2.0"}
     ]
   end
 

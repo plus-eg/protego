@@ -1,4 +1,6 @@
 defmodule Protego.Ecto.Changeset do
+  import Ecto.Changeset
+
   @moduledoc """
   The module adds some helper functions required during registration / authentication of users and authorization of resources.
   """
@@ -16,18 +18,21 @@ defmodule Protego.Ecto.Changeset do
     end)
   end
 
-  @doc"""
-  Puts the password hash to the changeset
+  @doc """
+  Puts the password hash in the changeset
 
   ## Example
-  iex>%Ecto.Changeset{valid?: true}
-  ...>|> Protego.Ecto.Changeset.put_password_hash
-  %Ecto.Changeset{valid?: true}
+  %Ecto.Changeset{changes: %{password: "123456"}}
+  |> Protego.Ecto.Changeset.put_password_hash
+  %Ecto.Changeset{changes: %{password: "12345"}}
   """
   def put_password_hash(changeset) do
     case changeset do
-      %Ecto.Changeset{valid?: true} -> changeset
-      _ -> changeset
+      %Ecto.Changeset{changes: %{password: password}} ->
+        put_change(changeset, :password_hash, Argon2.hash_pwd_salt(password))
+
+      _ ->
+        changeset
     end
   end
 end
