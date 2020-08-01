@@ -43,7 +43,11 @@ defmodule Protego.Mixfile do
       {:ex_doc, "~> 0.19", only: :docs},
       # Dev
       {:credo, "~> 1.4.0", only: [:dev, :test], runtime: false},
+      # Authentication and authorization
       {:guardian, "~> 2.1"},
+      {:ueberauth_identity, "~> 0.2"},
+      # Dependencies
+      {:plug, "~> 1.10"},
       {:ecto_sql, "~> 3.0"},
       {:argon2_elixir, "~> 2.0"}
     ]
