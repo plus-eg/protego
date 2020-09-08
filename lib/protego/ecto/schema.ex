@@ -1,5 +1,5 @@
 defmodule Protego.Ecto.Schema do
-  @doc"""
+  @doc """
   Adds the passwords fields to the ecto schema
   """
   defmacro password_fields do
