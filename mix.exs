@@ -46,6 +46,7 @@ defmodule Protego.Mixfile do
       # Authentication and authorization
       {:guardian, "~> 2.1"},
       {:ueberauth_identity, "~> 0.2"},
+      {:ueberauth, "~> 0.6"},
       # Dependencies
       {:plug, "~> 1.10"},
       {:ecto_sql, "~> 3.0"},
